@@ -41,7 +41,7 @@ Este proyecto utiliza el dataset Wine Quality del UCI Machine Learning Repositor
 
 ## Cómo Ejecutar
 1. Descarga `winequality-red.csv` y coloca en la carpeta.
-2. Abre `Proyecto3_PrediccionCalidadVino.ipynb` en Jupyter Notebook.
+2. Abre `Calidad_vino.ipynb` en Jupyter Notebook.
 3. Ejecuta las celdas en orden.
 4. Nota: El entrenamiento toma ~1 minuto.
 
@@ -49,10 +49,3 @@ Este proyecto utiliza el dataset Wine Quality del UCI Machine Learning Repositor
 - Optimizar hiperparámetros (e.g., GridSearchCV).
 - Combinar vinos tintos y blancos para mayor generalización.
 - Desarrollar una interfaz web para predicciones en tiempo real.
-
-## Licencia
-MIT License. Cita el dataset original si usas este proyecto.
-
-Autor: [Tu Nombre/Usuario de LinkedIn]  
-Fecha: 1 de septiembre de 2025  
-Enlace al repositorio: [Inserta enlace de GitHub aquí]
