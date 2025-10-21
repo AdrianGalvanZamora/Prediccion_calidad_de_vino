@@ -1,51 +1,155 @@
-# Predicción de Calidad de Vino
+# 🍷 Predicción de Calidad de Vino  
+[English version below ⬇️]  
 
-## Descripción del Proyecto
-Este proyecto utiliza el dataset Wine Quality del UCI Machine Learning Repository para predecir la calidad de vinos tintos basándose en propiedades fisicoquímicas. Es relevante para la industria vitivinícola, biotecnología y control de calidad, con aplicaciones en optimización de producción y clasificación de vinos.
+**Sector:** Industria vitivinícola, Biotecnología, Control de calidad  
+**Herramientas:** Python (Pandas, NumPy, Seaborn, Scikit-learn, SciPy, Matplotlib)  
 
-- **Dataset:** Wine Quality (1599 instancias, 12 features).
-- **Fuente:** [UCI](https://archive.ics.uci.edu/dataset/186/wine+quality)
-- **Herramientas:** Python con Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn y SciPy.
-- **Objetivos:**
-  - Realizar análisis exploratorio de datos (EDA) para identificar patrones.
-  - Limpiar datos (manejo de valores atípicos si aplica).
-  - Pruebas de hipótesis (e.g., diferencia en alcohol por calidad).
-  - Modelado de regresión con Random Forest.
-  - Evaluación con RMSE (0.56) y R² (0.51).
-  - Visualizaciones: histogramas, boxplots, importancia de variables.
+---
 
-## Requisitos
-- Python 3.8+.
-- Bibliotecas: Instala con `pip install pandas numpy matplotlib seaborn scikit-learn scipy`.
-- Dataset: Descarga `winequality-red.csv` de [aquí](https://archive.ics.uci.edu/dataset/186/wine+quality) y coloca en la carpeta del notebook.
+## 📋 Descripción General  
+Este proyecto analiza el dataset *Wine Quality* del **UCI Machine Learning Repository** con el objetivo de **predecir la calidad de vinos tintos** a partir de sus propiedades fisicoquímicas.  
 
-## Metodología
-1. **Carga y Limpieza:** Dataset cargado con 1599 instancias, manejo de valores atípicos (e.g., 155 en residual sugar) opcional.
-2. **EDA:**
-   - Distribución del target: ~43% calidad 5, ~40% calidad 6.
-   - Histogramas: Variables como alcohol muestran sesgos.
-   - Boxplots: Alcohol más alto en vinos de mayor calidad.
-   - Correlaciones: Moderadas (e.g., fixed acidity y density ~0.67).
-3. **Pruebas de Hipótesis:** t-test confirma diferencia significativa en alcohol (p-value: 1.14e-77).
-4. **Preparación:** Escalado con StandardScaler, split 80/20 (X_train: 1279; X_test: 320).
-5. **Modelado:** Random Forest (100 árboles, profundidad 10). RMSE: 0.56, R²: 0.51.
-6. **Evaluación:** Distribución de errores, importancia de variables (alcohol como predictor principal).
-7. **Visualizaciones:** Matriz de confusión, gráfico de importancia de features.
+Su propósito es doble:  
+1. **Comprender los factores químicos que influyen en la calidad del vino.**  
+2. **Desarrollar un modelo predictivo** basado en *Random Forest* que apoye la optimización de procesos de producción y clasificación en la industria vitivinícola.  
 
-## Resultados Clave
-- **RMSE:** 0.56.
-- **R²:** 0.51 (explica ~51% de la variabilidad).
-- **Mejor predictor:** Alcohol (importancia: 0.297).
-- **Insights:** Alcohol y sulphates son clave para calidad, útil para optimización de procesos.
-- **Limitaciones:** Modelo no optimizado; calidad tiene rango estrecho (3-8).
+El estudio combina análisis exploratorio de datos (EDA), pruebas estadísticas y modelado predictivo para ofrecer una visión cuantitativa de cómo variables como el alcohol, el pH o los sulfitos afectan la calidad percibida del vino.
 
-## Cómo Ejecutar
-1. Descarga `winequality-red.csv` y coloca en la carpeta.
-2. Abre `Calidad_vino.ipynb` en Jupyter Notebook.
-3. Ejecuta las celdas en orden.
-4. Nota: El entrenamiento toma ~1 minuto.
+---
 
-## Mejoras Futuras
-- Optimizar hiperparámetros (e.g., GridSearchCV).
-- Combinar vinos tintos y blancos para mayor generalización.
-- Desarrollar una interfaz web para predicciones en tiempo real.
+## 📊 Dataset  
+- **Fuente:** [UCI Machine Learning Repository – Wine Quality](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)  
+- **Tipo:** Vinos tintos  
+- **Tamaño:** 1,599 instancias, 12 características  
+- **Archivo:** `winequality-red.csv`  
+
+---
+
+## 🔍 Metodología  
+1. **Carga y Limpieza de Datos**  
+   - Se verificaron valores atípicos (e.g., 155 en *residual sugar*).  
+   - Se revisaron distribuciones y correlaciones entre variables.  
+
+2. **Análisis Exploratorio (EDA)**  
+   - La mayoría de los vinos tienen calidad 5 o 6 (~83 % del total).  
+   - El contenido de alcohol aumenta conforme lo hace la calidad.  
+   - Correlación destacada entre *fixed acidity* y *density* (~0.67).  
+
+3. **Pruebas de Hipótesis**  
+   - *t-test* confirmó diferencia significativa en alcohol según calidad (p-value ≈ 1.14 × 10⁻⁷⁷).  
+
+4. **Preparación y Modelado**  
+   - Escalado con *StandardScaler* y división 80/20 (train/test).  
+   - Modelo: *Random Forest Regressor* (100 árboles, profundidad = 10).  
+
+5. **Evaluación del Modelo**  
+   - RMSE: **0.56**  
+   - R²: **0.51**  
+   - Principal variable predictora: **alcohol (importancia = 0.297)**.  
+
+6. **Visualizaciones Clave**  
+   - Histogramas, boxplots, matriz de correlación y gráfico de importancia de variables.  
+
+---
+
+## 🌎 Principales Hallazgos  
+- **El alcohol y los sulfitos** son los factores más influyentes en la calidad del vino.  
+- El modelo explica alrededor del **51 % de la variabilidad** de la calidad.  
+- Los vinos con mayor graduación alcohólica suelen ser mejor calificados.  
+
+---
+
+## 🧠 Aplicación en el Mundo Real  
+Los resultados pueden aplicarse a:  
+- Mejorar procesos de fermentación y control de calidad.  
+- Clasificación automatizada de lotes de vino.  
+- Identificación de parámetros químicos óptimos para vinos de alta calidad.  
+
+---
+
+## ⚙️ Requisitos de Ejecución  
+- Python 3.8+  
+- Librerías: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `scipy`  
+- Archivo: `winequality-red.csv`  
+
+Instalación rápida:  
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn scipy
+
+# 🍷 Predicción de Calidad de Vino  
+[English version below ⬇️]  
+
+**Sector:** Industria vitivinícola, Biotecnología, Control de calidad  
+**Herramientas:** Python (Pandas, NumPy, Seaborn, Scikit-learn, SciPy, Matplotlib)  
+
+---
+
+## 📋 Descripción General  
+Este proyecto analiza el dataset *Wine Quality* del **UCI Machine Learning Repository** con el objetivo de **predecir la calidad de vinos tintos** a partir de sus propiedades fisicoquímicas.  
+
+Su propósito es doble:  
+1. **Comprender los factores químicos que influyen en la calidad del vino.**  
+2. **Desarrollar un modelo predictivo** basado en *Random Forest* que apoye la optimización de procesos de producción y clasificación en la industria vitivinícola.  
+
+El estudio combina análisis exploratorio de datos (EDA), pruebas estadísticas y modelado predictivo para ofrecer una visión cuantitativa de cómo variables como el alcohol, el pH o los sulfitos afectan la calidad percibida del vino.
+
+---
+
+## 📊 Dataset  
+- **Fuente:** [UCI Machine Learning Repository – Wine Quality](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)  
+- **Tipo:** Vinos tintos  
+- **Tamaño:** 1,599 instancias, 12 características  
+- **Archivo:** `winequality-red.csv`  
+
+---
+
+## 🔍 Metodología  
+1. **Carga y Limpieza de Datos**  
+   - Se verificaron valores atípicos (e.g., 155 en *residual sugar*).  
+   - Se revisaron distribuciones y correlaciones entre variables.  
+
+2. **Análisis Exploratorio (EDA)**  
+   - La mayoría de los vinos tienen calidad 5 o 6 (~83 % del total).  
+   - El contenido de alcohol aumenta conforme lo hace la calidad.  
+   - Correlación destacada entre *fixed acidity* y *density* (~0.67).  
+
+3. **Pruebas de Hipótesis**  
+   - *t-test* confirmó diferencia significativa en alcohol según calidad (p-value ≈ 1.14 × 10⁻⁷⁷).  
+
+4. **Preparación y Modelado**  
+   - Escalado con *StandardScaler* y división 80/20 (train/test).  
+   - Modelo: *Random Forest Regressor* (100 árboles, profundidad = 10).  
+
+5. **Evaluación del Modelo**  
+   - RMSE: **0.56**  
+   - R²: **0.51**  
+   - Principal variable predictora: **alcohol (importancia = 0.297)**.  
+
+6. **Visualizaciones Clave**  
+   - Histogramas, boxplots, matriz de correlación y gráfico de importancia de variables.  
+
+---
+
+## 🌎 Principales Hallazgos  
+- **El alcohol y los sulfitos** son los factores más influyentes en la calidad del vino.  
+- El modelo explica alrededor del **51 % de la variabilidad** de la calidad.  
+- Los vinos con mayor graduación alcohólica suelen ser mejor calificados.  
+
+---
+
+## 🧠 Aplicación en el Mundo Real  
+Los resultados pueden aplicarse a:  
+- Mejorar procesos de fermentación y control de calidad.  
+- Clasificación automatizada de lotes de vino.  
+- Identificación de parámetros químicos óptimos para vinos de alta calidad.  
+
+---
+
+## ⚙️ Requisitos de Ejecución  
+- Python 3.8+  
+- Librerías: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `scipy`  
+- Archivo: `winequality-red.csv`  
+
+Instalación rápida:  
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn scipy
